@@ -1,4 +1,4 @@
-package com.brdz.api.model;
+package com.brdz.api.user;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.brdz.api.model;
+package com.brdz.api.checkIn;
 
 
 import lombok.Data;
