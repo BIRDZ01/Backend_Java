@@ -23,7 +23,7 @@ public class CheckIn {
     private enum result{
         WELL,
         OK,
-        BADLY
+        HELP
 };
     public CheckIn(){}
 
