@@ -1,14 +1,17 @@
 package com.brdz.api.checkIn;
 
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CheckIn {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,11 +24,12 @@ public class CheckIn {
 //    TODO: Figure out how to make this work!
 //    @Column(name="result")
     private enum result{
-        WELL,
-        OK,
-        HELP
+        MINIMUM,
+        STANDBY,
+        MAXIMUM
 };
-    public CheckIn(){}
 
-
+    public CheckIn(LocalDateTime check_in_time) {
+        this.check_in_time = check_in_time;
+    }
 }
