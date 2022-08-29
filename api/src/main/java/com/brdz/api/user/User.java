@@ -1,12 +1,15 @@
 package com.brdz.api.user;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -84,6 +87,9 @@ public class User {
     @Column(name="zipcode")
     private Integer zipcode;
 
+    @Column(name="usercode")
+    private Integer usercode;
+
     @Column(name="passcode")
     private Integer passcode;
 
@@ -96,9 +102,21 @@ public class User {
     @Column(name="er_contact_number")
     private Integer erContactNumber;
 
+    @Column(name="er_contact_email")
+    private String erContactEmail;
 
-    public User(){}
 
-
-
+    public User(String screenName, String name, String address, String city, Integer zipcode, Integer passcode, Integer numChildren, String erContactName, Integer erContactNumber, String erContactEmail, Integer usercode) {
+        this.screenName = screenName;
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.zipcode = zipcode;
+        this.passcode = passcode;
+        this.numChildren = numChildren;
+        this.erContactName = erContactName;
+        this.erContactNumber = erContactNumber;
+        this.erContactEmail = erContactEmail;
+        this.usercode = usercode;
+    }
 }
