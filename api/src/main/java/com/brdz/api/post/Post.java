@@ -1,14 +1,17 @@
 package com.brdz.api.post;
 
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,6 +24,8 @@ public class Post {
     @Column(name="post_time")
     private LocalDateTime postTime;
 
-    public Post(){}
-
+    public Post(String postBody, LocalDateTime postTime) {
+        this.postBody = postBody;
+        this.postTime = postTime;
+    }
 }
