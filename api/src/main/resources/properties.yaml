@@ -1,12 +1,16 @@
 
 spring:
-  datasource:
-    url: jdbc:h2:mem:testdb
-    username: brdz
-    password: brdz
-    driverClassName: org.h2.Driver
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-  h2:
-    console.enabled: true
-    show-sql: true
+    hibernate:
+      ddl-auto: none
+      show-sql: true
+    database-platform: org.hibernate.dialect.PostgresSQLDialect
+  datasource:
+    url: jdbc://birdz-1.cpcfoxmdghfa.us-east-1.rds.amazonaws.com
+    username: postgres
+    password: k3vtpBUlfFTaYahLRL82
+    initialization-mode: always
+    initialization: true
+    schema: classpath://schema.sql
+    continue-on-error: true
+    driverClassName: org.postgresql.Driver
