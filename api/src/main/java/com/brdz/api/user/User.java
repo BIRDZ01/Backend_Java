@@ -119,4 +119,21 @@ public class User {
         this.erContactEmail = erContactEmail;
         this.usercode = usercode;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "screenName='" + screenName + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", zipcode=" + zipcode +
+                ", usercode=" + usercode +
+                ", passcode=" + passcode +
+                ", numChildren=" + numChildren +
+                ", erContactName='" + erContactName + '\'' +
+                ", erContactNumber=" + erContactNumber +
+                ", erContactEmail='" + erContactEmail + '\'' +
+                '}';
+    }
 }
