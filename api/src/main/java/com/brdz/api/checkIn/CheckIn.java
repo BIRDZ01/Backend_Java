@@ -19,21 +19,21 @@ public class CheckIn {
     private Integer id;
 
     @Column(name="check_in_time")
-    private LocalDateTime check_in_time;
+    private LocalDateTime checkInTime;
 
 
     @Column(name="result")
     @Enumerated(EnumType.STRING)
     private Result result;
 
-    public CheckIn(LocalDateTime check_in_time, String result) {
-        this.check_in_time = check_in_time; this.result = Result.valueOf(result);
+    public CheckIn(LocalDateTime checkInTime, String result) {
+        this.checkInTime = checkInTime; this.result = Result.valueOf(result);
     }
 
     @Override
     public String toString() {
         return "CheckIn{" +
-                "check_in_time=" + check_in_time +
+                "checkInTime=" + checkInTime +
                 ", result=" + result +
                 '}';
     }
