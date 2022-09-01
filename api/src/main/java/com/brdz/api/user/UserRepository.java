@@ -16,4 +16,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findUserByState(String state);
     List<User> findUserByZipcode(Integer zipcode);
     List<User> findUserByUsercode(Integer usercode);
+    List<User> findUserByContactName(String erContactName);
+    List<User> findUserByContactNumber(Integer erContactNumber);
+    List<User> findUserByContactEmail(String erContactEmail);
+    List<User> findUserByNumChildren(Integer numChildren);
 }
