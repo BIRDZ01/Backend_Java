@@ -21,15 +21,20 @@ public class CheckIn {
     @Column(name="check_in_time")
     private LocalDateTime check_in_time;
 
-//    TODO: Figure out how to make this work!
-//    @Column(name="result")
-    private enum result{
-        MINIMUM,
-        STANDBY,
-        MAXIMUM
-};
 
-    public CheckIn(LocalDateTime check_in_time) {
-        this.check_in_time = check_in_time;
+    @Column(name="result")
+    @Enumerated(EnumType.STRING)
+    private Result result;
+
+    public CheckIn(LocalDateTime check_in_time, String result) {
+        this.check_in_time = check_in_time; this.result = Result.valueOf(result);
+    }
+
+    @Override
+    public String toString() {
+        return "CheckIn{" +
+                "check_in_time=" + check_in_time +
+                ", result=" + result +
+                '}';
     }
 }
