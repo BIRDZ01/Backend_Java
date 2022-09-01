@@ -1,6 +1,7 @@
 package com.brdz.api.user;
 
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 
@@ -28,61 +29,9 @@ public class User {
     @Column(name="city")
     private String city;
 
-//    TODO: Figure out how to make this work!!
-//    @Enumerated(EnumType.STRING)
-//    @Column(name="state")
-    private enum state{
-        AL,
-        AK,
-        AZ,
-        AR,
-        CA,
-        CO,
-        CT,
-        DE,
-        FL,
-        GA,
-        HI,
-        ID,
-        IL,
-        IN,
-        IA,
-        KS,
-        KY,
-        LA,
-        ME,
-        MD,
-        MA,
-        MI,
-        MN,
-        MS,
-        MO,
-        MT,
-        NE,
-        NV,
-        NH,
-        NJ,
-        NM,
-        NY,
-        NC,
-        ND,
-        OH,
-        OK,
-        OR,
-        PA,
-        RI,
-        SC,
-        SD,
-        TN,
-        TX,
-        UT,
-        VT,
-        VA,
-        WA,
-        WV,
-        WI,
-        WY
-    };
+    @Column(name="state")
+    @Enumerated(EnumType.STRING)
+    private State state;
 
     @Column(name="zipcode")
     private Integer zipcode;
@@ -106,11 +55,12 @@ public class User {
     private String erContactEmail;
 
 
-    public User(String screenName, String name, String address, String city, Integer zipcode, Integer passcode, Integer numChildren, String erContactName, Integer erContactNumber, String erContactEmail, Integer usercode) {
+    public User(String screenName, String name, String address, String city, String state, Integer zipcode, Integer passcode, Integer numChildren, String erContactName, Integer erContactNumber, String erContactEmail, Integer usercode) {
         this.screenName = screenName;
         this.name = name;
         this.address = address;
         this.city = city;
+        this.state = State.valueOf(state);
         this.zipcode = zipcode;
         this.passcode = passcode;
         this.numChildren = numChildren;
@@ -127,6 +77,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
                 ", zipcode=" + zipcode +
                 ", usercode=" + usercode +
                 ", passcode=" + passcode +
